@@ -1,7 +1,46 @@
 body {
+  display: flex;
+  flex-direction: row;
   background-color: #A9AAD2;
+  font-family: "Open Sans";
+  height: 700vh;
+  min-height: 700px;
+}
+
+.trying {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .idea-form {
   border: 2px solid black;
+}
+
+form.idea-title #save-idea {
+  width: 150px;
+  font-family: "Open Sans";
+  border-radius: 3px;
+  background-color: #1F1F3D;
+  color: #FFFFFF;
+}
+
+.navigation {
+   display: flex;
+   flex-direction: row;
+  border: 2px solid green;
+  flex: 1;
+  width: 500px;
+}
+
+.idea-container {
+  background-color: #EAEAF4;
+  border: 2px solid blue;
+  flex: 1;
 }

@@ -14,7 +14,18 @@ main {
 }
 
 .idea-form {
-  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 50px 200px;
+}
+
+.idea-title {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  flex: 0 0 auto;
 }
 
 form.idea-title #save-idea {
@@ -82,11 +93,6 @@ form.idea-title #save-idea {
   display: none;
 }
 
-.idea-container article footer {
-  background-color: #5356A4;
-  height: 25px;
-}
-
 .idea-container article footer button {
   display: flex;
   justify-content: flex-start;
@@ -97,4 +103,21 @@ form.idea-title #save-idea {
 
 .idea-container article footer button span {
   color: #E9E9F3;
+}
+
+.idea-container article .idea-body {
+  padding: 15px;
+  background-color: #FFFFFF;
+  height: 200px;
+  overflow: auto;
+}
+
+.idea-container article .idea-body p {
+  text-align: justify;
+  color: #1F1F3D;
+}
+
+.idea-container article footer {
+  background-color: #5356A4;
+  height: 25px;
 }

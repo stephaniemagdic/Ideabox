@@ -39,23 +39,27 @@ form.idea-title #save-idea {
 .navigation {
   display: flex;
   flex-direction: column;
-  border: 2px solid green;
+  border: 2px solid none;
   padding-left: 15px;
   flex: 0 0 auto;
   width: 200px;
   background-color: #1F1F3D;
   color:#E9E9F3;
+  font-size: 10px;
 }
 
-.show-starred-idea {
+.show-starred-ideas {
   background-color: #5356A4;
+  font-weight: bold;
   color: #E9E9F3;
-  padding: 10px 15px 10px 15px;
-  border-radius: 2px;
+  padding: 10px 30px 10px 30px;
+  border-radius: 1px;
+  border: none;
 }
 
 .filter-box {
-  border-color: 2px solid #353567;
+  border: 2px solid #353567;
+  box-sizing: content-box;
 }
 
 .idea-container {

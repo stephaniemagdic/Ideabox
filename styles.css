@@ -40,8 +40,22 @@ form.idea-title #save-idea {
   display: flex;
   flex-direction: column;
   border: 2px solid green;
+  padding-left: 15px;
   flex: 0 0 auto;
   width: 200px;
+  background-color: #1F1F3D;
+  color:#E9E9F3;
+}
+
+.show-starred-idea {
+  background-color: #5356A4;
+  color: #E9E9F3;
+  padding: 10px 15px 10px 15px;
+  border-radius: 2px;
+}
+
+.filter-box {
+  border-color: 2px solid #353567;
 }
 
 .idea-container {

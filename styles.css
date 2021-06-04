@@ -3,14 +3,8 @@ body {
   flex-direction: row;
   background-color: #A9AAD2;
   font-family: "Open Sans";
-  height: 700vh;
+  height: 100vh;
   min-height: 700px;
-}
-
-.trying {
-  display: flex;
-  flex-direction: column;
-  border: 2px solid black;
 }
 
 main {
@@ -32,15 +26,75 @@ form.idea-title #save-idea {
 }
 
 .navigation {
-   display: flex;
-   flex-direction: row;
+  display: flex;
+  flex-direction: column;
   border: 2px solid green;
-  flex: 1;
-  width: 500px;
+  flex: 0 0 auto;
+  width: 200px;
 }
 
 .idea-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
   background-color: #EAEAF4;
   border: 2px solid blue;
   flex: 1;
+  min-width: 900px;
+}
+
+.idea-container article {
+  display: flex;
+  flex-direction: column;
+  min-width: 250px;
+  width: 30%;
+  margin: 5px;
+}
+
+.idea-container article header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1F1F3D;
+  height: 25px;
+}
+
+.idea-container article button {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.idea-container article button img {
+  height: 25px;
+}
+
+.idea-container article button img:last-child {
+  display: none;
+}
+.idea-container article header button:hover img:last-child{
+  display: block;
+}
+
+.idea-container article header button:hover img:first-child {
+  display: none;
+}
+
+.idea-container article footer {
+  background-color: #5356A4;
+  height: 25px;
+}
+
+.idea-container article footer button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.idea-container article footer button span {
+  color: #E9E9F3;
 }

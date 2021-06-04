@@ -7,20 +7,17 @@
     <title>Ideabox</title>
   </head>
   <body>
-    <!-- <div class="trying"> -->
       <nav class="navigation">
         <h1>IdeaBox</h1>
-        <div>
+        <div class="filter-box">
           <h2>Filter Starred Ideas</h2>
           <button class="show-starred-ideas">Show Starred Ideas</button>
         </div>
       </nav>
-    <!-- </div> -->
     <main>
       <section class="idea-form">
-        <h2>Title</h2>
         <form id="title" class="idea-title">
-          <label for="Title 2">Title 2
+          <label for="Title 2">Title
             <input type="text" placeholder="Add your title here">
           </label>
           <label for="Body">Body
@@ -28,10 +25,32 @@
           </label>
           <button id="save-idea" class="primary">Save</button>
           <input type="search" id="search-idea" class="search" placeholder="Search ideas">
+        </form>
       </section>
 
       <section class="idea-container">
-        <p>test</p>
+        <article>
+          <header>
+              <button class="favorite-button">
+                <img src="assets/star.svg" alt="star">
+                <img src="assets/star-active.svg" alt="star">
+              </button>
+              <button class="favorite-button">
+                <img src="assets/delete.svg" alt="X">
+                <img src="assets/delete-active.svg" alt="X">
+              </button>
+          </header>
+          <div class="idea-body">
+            <strong>IdeaTitle</strong>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <footer>
+            <button class="comment-button">
+              <img src="assets/comment.svg" alt="comment">
+              <span>Comment</span>
+            </button>
+          </footer>
+        </article>
       </section>
     </main>
 

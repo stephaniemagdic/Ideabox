@@ -175,3 +175,7 @@ form.idea-title #save-idea {
   background-color: #5356A4;
   height: 25px;
 }
+
+.hidden {
+  display: none;
+}

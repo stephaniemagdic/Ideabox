@@ -9,9 +9,10 @@ var saveIdeaBtn = document.querySelector('.primary');
 // var xRedImg = document.getElementByName('x-red');
 var titleInput = document.getElementById('titleInput');
 var bodyInput = document.getElementById('bodyInput');
+var ideaContainerSection = document.querySelector('.idea-container');
 
 
-var savedIdeas = syncLocalStorage();
+var savedIdeas = [];
 // saveIdeaBtn.disabled = false;
 
 // starredIdeasBtn.addEventListener("click",);
@@ -64,12 +65,39 @@ function createNewIdea() {
   //    We want to copy the id of the idea to the empty list
   //    We then want to store the idea in the local storage
   //
+    savedIdeas.push(newIdea);
     newIdea.saveToStorage();
-
+    displayIdeas();
   }
 
+function displayIdeas() {
+  for (i = 0; i < savedIdeas.length; i++) {
+    ideaContainerSection.innerHTML += `<article>
+      <header>
+          <button id="favorite" class="favorite-button">
+            <img name="star-white" src="assets/star.svg" alt="star">
+            <img name="star-red" src="assets/star-active.svg" alt="star">
+          </button>
+          <button id="deleteCard" class="favorite-button">
+            <img name="x-white" src="assets/delete.svg" alt="X">
+            <img name="x-red" src="assets/delete-active.svg" alt="X">
+          </button>
+      </header>
+      <div class="idea-body">
+        <strong>${savedIdeas[i].title}</strong>
+        <p>${savedIdeas[i].body}</p>
+      </div>
+      <footer>
+        <button class="comment-button">
+          <img src="assets/comment.svg" alt="comment">
+          <span>Comment</span>
+        </button>
+      </footer>
+    </article>`
+  }
+}
 
-function syncLocalStorage() {
+
 
 
 // Goal:  Is to make sure that on page reload/any point in time where
@@ -82,7 +110,7 @@ function syncLocalStorage() {
 // We want to put that info into an array so JS can read.
 // We want it to be able to show the information in a useable way.
 //
-}
+
 
 
 //Goal: When both input fields have a value, allow user to click the save button

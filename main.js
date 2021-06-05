@@ -9,14 +9,15 @@ var saveIdeaBtn = document.querySelector('.primary');
 // var xRedImg = document.getElementByName('x-red');
 var titleInput = document.getElementById('titleInput');
 var bodyInput = document.getElementById('bodyInput');
-console.log(titleInput);
-console.log(bodyInput);
 
-// var savedIdeas = syncLocalStorage();
+
+var savedIdeas = syncLocalStorage();
 // saveIdeaBtn.disabled = false;
 
 // starredIdeasBtn.addEventListener("click",);
 saveIdeaBtn.addEventListener("click", createNewIdea);
+titleInput.addEventListener("keyup", checkInputs);
+bodyInput.addEventListener("keyup", checkInputs);
 // favoriteBtn.addEventListener("click",);
 // deleteCardBtn.addEventListener("click",);
 // commentBtn.addEventListener("click",);
@@ -26,25 +27,62 @@ saveIdeaBtn.addEventListener("click", createNewIdea);
 // xRedImg.addEventListener("click",);
 
 
-function createNewIdea() {
-  var newTitleInput = titleInput.value;
-  var newBodyInput = bodyInput.value;
-  if (!newTitleInput || !newBodyInput) {
-    saveIdeaBtn.disabled = true;
+function checkInputs() {
+  if (titleInput.value === "" || bodyInput.value === "")
+   {
+    disableBtn();
+    return false;
   } else {
-    saveIdeaBtn.disabled = false;
-    var newIdea = new Idea(newTitleInput, newBodyInput)
-    console.log(newIdea);
-
-
-    newIdea.saveToStorage();
+    enableBtn();
+    return true;
   }
 }
 
-// function syncLocalStorage() {
-//
-// }
+function enableBtn() {
+  if (saveIdeaBtn.disabled === true) {
+    saveIdeaBtn.disabled = false;
+  }
+}
 
+function disableBtn() {
+  if (saveIdeaBtn.disabled === false) {
+    saveIdeaBtn.disabled = true;
+  }
+}
+
+function createNewIdea() {
+  if (checkInputs() === false) {
+    return false;
+  }
+    var newIdea = new Idea(titleInput.value, bodyInput.value)
+
+// Goal:  We need to know which id's we are accessing and storing inside
+//      the local storage.  So we need some way to track those.
+
+  //    We want to create an empty list to hold the id of each of the
+  //    items we put in local storage
+  //    We want to copy the id of the idea to the empty list
+  //    We then want to store the idea in the local storage
+  //
+    newIdea.saveToStorage();
+
+  }
+
+
+function syncLocalStorage() {
+
+
+// Goal:  Is to make sure that on page reload/any point in time where
+// we need the DM to be updated with the most recent info.
+
+// We want our saved ideas array to have all the instances/ keys that are
+// in our local storage.
+
+// We want to get and parse the information that is in local storage
+// We want to put that info into an array so JS can read.
+// We want it to be able to show the information in a useable way.
+//
+}
 
 
 //Goal: When both input fields have a value, allow user to click the save button

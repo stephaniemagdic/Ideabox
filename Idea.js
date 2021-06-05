@@ -17,20 +17,26 @@ class Idea {
   // and object/ JSON.parse /and than we can put ( push) it into the array of saved cards.
 
   saveToStorage() {
-
-
-
+    var ideaCard = JSON.stringify(this);
+    localStorage.setItem(`${this.id}`,ideaCard);
   }
 
   deleteFromStorage() {
+    localStorage.removeItem(`${this.id}`);
     // -will delete the card from the storage/
   }
 
   updateIdea() {
+    if (this.star === true) {
+      this.star = false;
+    } else if (this.star === false) {
+      this.star = true;
+    }
+      saveToStorage();
     // -will pick up the property of star and update the ideaCard
-
   }
 };
+
 
 
 module.exports = Idea;

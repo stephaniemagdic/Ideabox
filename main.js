@@ -12,27 +12,40 @@ var bodyInput = document.getElementById('bodyInput');
 console.log(titleInput);
 console.log(bodyInput);
 
-var savedIdeas =[];
+// var savedIdeas = syncLocalStorage();
 // saveIdeaBtn.disabled = false;
 
 // starredIdeasBtn.addEventListener("click",);
 saveIdeaBtn.addEventListener("click", createNewIdea);
-// favoriteBtn.addEventListener("click", function());
-// deleteCardBtn.addEventListener("click", function());
-// commentBtn.addEventListener("click", function());
-// starWhiteImg.addEventListener("click", function());
-// starRedImg.addEventListener("click", function());
-// xWhiteImg.addEventListener("click", function());
-// xRedImg.addEventListener("click", function());
-
+// favoriteBtn.addEventListener("click",);
+// deleteCardBtn.addEventListener("click",);
+// commentBtn.addEventListener("click",);
+// starWhiteImg.addEventListener("click",);
+// starRedImg.addEventListener("click",);
+// xWhiteImg.addEventListener("click",);
+// xRedImg.addEventListener("click",);
 
 
 function createNewIdea() {
   var newTitleInput = titleInput.value;
   var newBodyInput = bodyInput.value;
-  var newIdea = new Idea(newTitleInput, newBodyInput)
-  console.log(newIdea);
+  if (!newTitleInput || !newBodyInput) {
+    saveIdeaBtn.disabled = true;
+  } else {
+    saveIdeaBtn.disabled = false;
+    var newIdea = new Idea(newTitleInput, newBodyInput)
+    console.log(newIdea);
+
+
+    newIdea.saveToStorage();
+  }
 }
+
+// function syncLocalStorage() {
+//
+// }
+
+
 
 //Goal: When both input fields have a value, allow user to click the save button
 //     and add the new new idea card to the idea container section.

@@ -18,13 +18,16 @@
       <section class="idea-form">
         <form id="title" class="idea-title">
           <label for="Title 2">Title
-            <input type="text" placeholder="Add your title here">
+            <input type="text" name="title" placeholder="Add your title here">
           </label>
           <label for="Body">Body
-            <input type="text" placeholder="Insert your idea here">
+            <input type="text" name="idea" placeholder="Insert your idea here">
           </label>
           <button id="save-idea" class="primary">Save</button>
-          <input type="search" id="search-idea" class="search" placeholder="Search ideas">
+          <div class="field-container">
+            <img src="assets/search.svg" alt="Magnifying glass">
+            <input type="text" id="search-idea" class="search" placeholder="Search ideas">
+          </div>
         </form>
       </section>
 

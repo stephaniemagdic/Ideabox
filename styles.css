@@ -22,18 +22,54 @@ main {
 
 .idea-title {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  flex: 0 0 auto;
+  height: 200px;
+  width: 400px;
+}
+
+label {
+  font: #1F1F3D;
+  font-weight: bold;
+}
+
+input {
+  display:block;
+  display:flex;
+  width: 100%;
+}
+
+.idea-form input[name="title"] {
+  height: 40px;
+}
+
+.idea-form input[name="idea"] {
+  height: 80px;
 }
 
 form.idea-title #save-idea {
-  width: 150px;
+  width: 100%;
   font-family: "Open Sans";
   border-radius: 3px;
   background-color: #1F1F3D;
   color: #FFFFFF;
+  margin:10px 0;
+  border: none;
+  height: 80px;
+}
+
+.field-container {
+  display: flex;
+  border: 1 solid black;
+  justify-content: flex-start;
+  align-items: center;
+}
+.field-container img {
+  width: 20px;
+  background-color: #1F1F3D;
+}
+.field-container input {
+  border: 0;
 }
 
 .navigation {
@@ -52,7 +88,7 @@ form.idea-title #save-idea {
   background-color: #5356A4;
   font-weight: bold;
   color: #E9E9F3;
-  padding: 10px 30px 10px 30px;
+  padding: 10px 30px;
   border-radius: 1px;
   border: none;
 }

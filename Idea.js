@@ -36,10 +36,3 @@ class Idea {
     // -will pick up the property of star and update the ideaCard
   }
 };
-
-
-
-module.exports = Idea;
-// saveToStorage (should only have one job which is to save the instance to storage)
-// deleteFromStorage
-// updateIdea

@@ -11,17 +11,17 @@ var titleInput = document.getElementById('titleInput');
 var bodyInput = document.getElementById('bodyInput');
 var ideaContainerSection = document.querySelector('.idea-container');
 
+
 var savedIdeas = [];
 
 // window.addEventListener("load", getLocalStorage);
 //
 // function getLocalStorage() {
-// for(var i =0; i < localStorage.length; i++){
+// for(var i =0; i < localStorage.length; i++) {
 //   console.log(localStorage.getItem(localStorage.key(i)))
 // //   savedIdeas.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-// // savedIdeas.push(JSON.parse
-// }
-// }
+//  }
+//}
 
 
 // saveIdeaBtn.disabled = false;
@@ -35,12 +35,42 @@ bodyInput.addEventListener("keyup", checkInputs);
 // commentBtn.addEventListener("click",);
 // starWhiteImg.addEventListener("click",);
 
+// e.target.id === "star-white" ||
 ideaContainerSection.addEventListener("click", function(e) {
-if(e.target.id === "x-red"){
-  deleteIdea(e)
+  if(e.target.id === "starWhite" || e.target.id === "starRed") {
+    addToFavorite(e);
+  }
+});
+
+ideaContainerSection.addEventListener("click", function(e) {
+  if(e.target.id === "x-red") {
+    deleteIdea(e)
+  }
+  });
+
+  function addToFavorite(e) {
+  for(var i = 0; i < savedIdeas.length; i ++) {
+    console.log("Im in the first loop",localStorage);
+    console.log(savedIdeas);
+      if(`${e.target.closest("article").id}` === `${savedIdeas[i].id}`) {
+        savedIdeas[i].updateIdea();
+        console.log("Im in the second loop",localStorage);
+
+        // when we add a favorite we will updateIdea()- this will update the instance,
+        // 1-we have to update our DataModel so the array
+        // 2-update the localStorage - stringify and delete the duplicated one.
+        // 3- delete from the dom?  // intanciate the Idea.js with the values from the card
+          // var CardFavorited = localStorage.getItem(e.target.closest("article").id)
+          // updatethe idea
+      }
+
+      // localStorage.removeItem(`${e.target.closest("article").id}`);
+      console.log("Im after the remove item loop",localStorage);
+
+      console.log(localStorage);
+      console.log(savedIdeas);
+  }
 }
-}
-);
 
 function checkInputs() {
   if (titleInput.value === "" || bodyInput.value === "")
@@ -87,8 +117,8 @@ function displayIdeas() {
     ideaContainerSection.innerHTML += `<article id=${savedIdeas[i].id}>
       <header>
           <button id="favorite" class="favorite-button">
-            <img name="star-white" src="assets/star.svg" alt="star">
-            <img name="star-red" src="assets/star-active.svg" alt="star">
+            <img name="star-white" id="starWhite" src="assets/star.svg" alt="star">
+            <img name="star-red" id="starRed" src="assets/star-active.svg" alt="star">
           </button>
           <button id="deleteCard" class="delete-button">
             <img name="x-white" src="assets/delete.svg" alt="X">
@@ -109,19 +139,13 @@ function displayIdeas() {
   }
 }
 
-
 function deleteIdea(e) {
   for(var i = 0; i < savedIdeas.length; i ++) {
-    if(`${e.target.closest("article").id}` === `${savedIdeas[i].id}`){
+    if(`${e.target.closest("article").id}` === `${savedIdeas[i].id}`) {
       savedIdeas[i].deleteFromStorage();
       savedIdeas.splice(i, 1);
-      console.log(savedIdeas);
-      console.log(localStorage)
-
     }
   }
-
   displayIdeas();
-  console.log("I have just called displayIDeas()");
 
 }

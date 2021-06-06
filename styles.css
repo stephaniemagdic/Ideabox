@@ -153,6 +153,14 @@ form.idea-title #save-idea {
   display: none;
 }
 
+.idea-container article header button.favorite-button img:last-child{
+  display: none;
+}
+
+.idea-container article header button.favorite-button img:first-child {
+  display: block;
+}
+
 .idea-container article footer button {
   display: flex;
   justify-content: flex-start;

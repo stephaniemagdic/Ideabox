@@ -71,6 +71,10 @@ function createNewIdea() {
   }
 
 function displayIdeas() {
+  titleInput.value = null;
+  bodyInput.value = null;
+  console.log(titleInput);
+  console.log(titleInput);
   for (i = 0; i < savedIdeas.length; i++) {
     ideaContainerSection.innerHTML += `<article>
       <header>

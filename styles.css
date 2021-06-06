@@ -161,6 +161,14 @@ form.idea-title #save-idea {
   display: block;
 }
 
+.idea-container article.starred header button.favorite-button img:first-child {
+  display: none;
+}
+
+.idea-container article.starred header button.favorite-button img:last-child{
+  display: block;
+}
+
 .idea-container article footer button {
   display: flex;
   justify-content: flex-start;

@@ -50,25 +50,14 @@ ideaContainerSection.addEventListener("click", function(e) {
 
   function addToFavorite(e) {
   for(var i = 0; i < savedIdeas.length; i ++) {
-    console.log("Im in the first loop",localStorage);
-    console.log(savedIdeas);
       if(`${e.target.closest("article").id}` === `${savedIdeas[i].id}`) {
-        savedIdeas[i].updateIdea();
-        console.log("Im in the second loop",localStorage);
-
-        // when we add a favorite we will updateIdea()- this will update the instance,
-        // 1-we have to update our DataModel so the array
-        // 2-update the localStorage - stringify and delete the duplicated one.
-        // 3- delete from the dom?  // intanciate the Idea.js with the values from the card
-          // var CardFavorited = localStorage.getItem(e.target.closest("article").id)
-          // updatethe idea
+        if (savedIdeas[i].star === true) {
+          document.getElementById(e.target.closest("article").id).classList.remove("starred");
+        } else {
+          document.getElementById(e.target.closest("article").id).classList.add("starred");
+        }
+          savedIdeas[i].updateIdea();
       }
-
-      // localStorage.removeItem(`${e.target.closest("article").id}`);
-      console.log("Im after the remove item loop",localStorage);
-
-      console.log(localStorage);
-      console.log(savedIdeas);
   }
 }
 

@@ -1,12 +1,12 @@
 // var starredIdeasBtn = document.querySelector('.show-starred-ideas');
 var saveIdeaBtn = document.querySelector('.primary');
 // var favoriteBtn = document.getElementById('favorite');
-// var deleteCardBtn = document.getElementById('deleteCard');
+var deleteCardBtn = document.getElementById('deleteCard');
 // var commentBtn = document.querySelector('.comment-button');
 // var starWhiteImg = document.getElementByName('star-white');
 // var starRedImg = document.getElementByName('star-red');
 // var xWhiteImg = document.getElementByName('x-white');
-// var xRedImg = document.getElementByName('x-red');
+var xRedImg = document.getElementById('x-red');
 var titleInput = document.getElementById('titleInput');
 var bodyInput = document.getElementById('bodyInput');
 var ideaContainerSection = document.querySelector('.idea-container');
@@ -23,7 +23,13 @@ bodyInput.addEventListener("keyup", checkInputs);
 // deleteCardBtn.addEventListener("click",);
 // commentBtn.addEventListener("click",);
 // starWhiteImg.addEventListener("click",);
-// starRedImg.addEventListener("click",);
+
+ideaContainerSection.addEventListener("click", function(event) {
+  if(event.target.classList.contains("delete-button")){
+  deleteIdea(event)
+}
+}
+);
 // xWhiteImg.addEventListener("click",);
 // xRedImg.addEventListener("click",);
 
@@ -73,8 +79,7 @@ function createNewIdea() {
 function displayIdeas() {
   titleInput.value = null;
   bodyInput.value = null;
-  console.log(titleInput);
-  console.log(titleInput);
+
   for (i = 0; i < savedIdeas.length; i++) {
     ideaContainerSection.innerHTML += `<article>
       <header>
@@ -101,7 +106,19 @@ function displayIdeas() {
   }
 }
 
+// When I click the “Delete” button on an idea card,
+// The card should be permanently removed from my view
 
+function deleteIdea(event) {
+  console.log(event);
+  console.log(event.target.id)
+  //we have to grab the id of the element that is clicked.
+    console.log(event.target);
+    console(event.target.nodeName)
+  //take the instance out of the savedIdeas array;
+  //remove the instance from localStorage by the id;
+  // call the function displayIdeas (renderSavedIdeas);
+}
 
 
 // Goal:  Is to make sure that on page reload/any point in time where

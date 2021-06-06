@@ -125,15 +125,3 @@ function deleteIdea(e) {
   console.log("I have just called displayIDeas()");
 
 }
-
-
-
-
-
-
-
-
-
-
-
-// var newIdeaCard = new Idea(parameters:infoTitle, infoBody);

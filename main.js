@@ -24,9 +24,11 @@ bodyInput.addEventListener("keyup", checkInputs);
 // commentBtn.addEventListener("click",);
 // starWhiteImg.addEventListener("click",);
 
-ideaContainerSection.addEventListener("click", function(event) {
-  if(event.target.classList.contains("delete-button")){
-  deleteIdea(event)
+ideaContainerSection.addEventListener("click", function(e) {
+// console.log(e.target, e)
+// console.log("this is the id--->", e.target.id)
+if(e.target.id === "x-red"){
+  deleteIdea(e)
 }
 }
 );
@@ -87,9 +89,9 @@ function displayIdeas() {
             <img name="star-white" src="assets/star.svg" alt="star">
             <img name="star-red" src="assets/star-active.svg" alt="star">
           </button>
-          <button id="deleteCard" class="favorite-button">
+          <button id="deleteCard" class="delete-button">
             <img name="x-white" src="assets/delete.svg" alt="X">
-            <img name="x-red" src="assets/delete-active.svg" alt="X">
+            <img name="x-red" id="x-red" src="assets/delete-active.svg" alt="X">
           </button>
       </header>
       <div class="idea-body">
@@ -109,12 +111,11 @@ function displayIdeas() {
 // When I click the “Delete” button on an idea card,
 // The card should be permanently removed from my view
 
-function deleteIdea(event) {
-  console.log(event);
-  console.log(event.target.id)
+function deleteIdea(e) {
+  console.log("I am here")
+
   //we have to grab the id of the element that is clicked.
-    console.log(event.target);
-    console(event.target.nodeName)
+
   //take the instance out of the savedIdeas array;
   //remove the instance from localStorage by the id;
   // call the function displayIdeas (renderSavedIdeas);

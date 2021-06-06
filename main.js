@@ -103,28 +103,54 @@ function displayIdeas() {
   console.log("savedIdeas", savedIdeas);
 
   for (i = 0; i < savedIdeas.length; i++) {
-    ideaContainerSection.innerHTML += `<article id=${savedIdeas[i].id}>
-      <header>
-          <button id="favorite" class="favorite-button">
-            <img name="star-white" id="starWhite" src="assets/star.svg" alt="star">
-            <img name="star-red" id="starRed" src="assets/star-active.svg" alt="star">
+    if (savedIdeas[i].star === true) {
+      ideaContainerSection.innerHTML +=`<article id=${savedIdeas[i].id} class="starred">
+        <header>
+            <button id="favorite" class="favorite-button">
+              <img name="star-white" id="starWhite" src="assets/star.svg" alt="star">
+              <img name="star-red" id="starRed" src="assets/star-active.svg" alt="star">
+            </button>
+            <button id="deleteCard" class="delete-button">
+              <img name="x-white" src="assets/delete.svg" alt="X">
+              <img name="x-red" id="x-red" src="assets/delete-active.svg" alt="X">
+            </button>
+        </header>
+        <div class="idea-body">
+          <strong>${savedIdeas[i].title}</strong>
+          <p>${savedIdeas[i].body}</p>
+        </div>
+        <footer>
+          <button class="comment-button">
+            <img src="assets/comment.svg" alt="comment">
+            <span>Comment</span>
           </button>
-          <button id="deleteCard" class="delete-button">
-            <img name="x-white" src="assets/delete.svg" alt="X">
-            <img name="x-red" id="x-red" src="assets/delete-active.svg" alt="X">
+        </footer>
+      </article>`
+    } else if (savedIdeas[i].star === false) {
+      ideaContainerSection.innerHTML += `<article id=${savedIdeas[i].id}>
+        <header>
+            <button id="favorite" class="favorite-button">
+              <img name="star-white" id="starWhite" src="assets/star.svg" alt="star">
+              <img name="star-red" id="starRed" src="assets/star-active.svg" alt="star">
+            </button>
+            <button id="deleteCard" class="delete-button">
+              <img name="x-white" src="assets/delete.svg" alt="X">
+              <img name="x-red" id="x-red" src="assets/delete-active.svg" alt="X">
+            </button>
+        </header>
+        <div class="idea-body">
+          <strong>${savedIdeas[i].title}</strong>
+          <p>${savedIdeas[i].body}</p>
+        </div>
+        <footer>
+          <button class="comment-button">
+            <img src="assets/comment.svg" alt="comment">
+            <span>Comment</span>
           </button>
-      </header>
-      <div class="idea-body">
-        <strong>${savedIdeas[i].title}</strong>
-        <p>${savedIdeas[i].body}</p>
-      </div>
-      <footer>
-        <button class="comment-button">
-          <img src="assets/comment.svg" alt="comment">
-          <span>Comment</span>
-        </button>
-      </footer>
-    </article>`
+        </footer>
+      </article>`
+    }
+
   }
 }
 

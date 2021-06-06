@@ -48,7 +48,13 @@ ideaContainerSection.addEventListener("click", function(e) {
   }
   });
 
-starredIdeasBtn.addEventListener("click", displayFavorites);
+starredIdeasBtn.addEventListener("click", function() {
+  if (starredIdeasBtn.innerText === "Show Starred Ideas") {
+    displayFavorites();
+  } else if(starredIdeasBtn.innerText === "Show All Ideas") {
+    displayIdeas();
+  }
+});
 
   function addToFavorite(e) {
   for(var i = 0; i < savedIdeas.length; i ++) {
@@ -99,6 +105,7 @@ function createNewIdea() {
 function displayIdeas() {
   titleInput.value = null;
   bodyInput.value = null;
+  starredIdeasBtn.innerText = "Show Starred Ideas";
 
   ideaContainerSection.innerHTML = "";
 
@@ -183,6 +190,7 @@ function displayFavorites() {
       </footer>
     </article>`
   }
+  starredIdeasBtn.innerText = "Show All Ideas";
 
 }
 

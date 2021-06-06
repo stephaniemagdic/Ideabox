@@ -1,4 +1,4 @@
-// var starredIdeasBtn = document.querySelector('.show-starred-ideas');
+var starredIdeasBtn = document.querySelector('.show-starred-ideas');
 var saveIdeaBtn = document.querySelector('.primary');
 // var favoriteBtn = document.getElementById('favorite');
 var deleteCardBtn = document.getElementById('deleteCard');
@@ -47,6 +47,8 @@ ideaContainerSection.addEventListener("click", function(e) {
     deleteIdea(e)
   }
   });
+
+starredIdeasBtn.addEventListener("click", displayFavorites);
 
   function addToFavorite(e) {
   for(var i = 0; i < savedIdeas.length; i ++) {
@@ -153,6 +155,38 @@ function displayIdeas() {
 
   }
 }
+
+function displayFavorites() {
+  var filteredFavorites = savedIdeas.filter(idea => idea.star === true);
+  ideaContainerSection.innerHTML = "";
+  for (i = 0; i < filteredFavorites.length; i++) {
+    ideaContainerSection.innerHTML += `<article id=${filteredFavorites[i].id} class="starred">
+      <header>
+          <button id="favorite" class="favorite-button">
+            <img name="star-white" id="starWhite" src="assets/star.svg" alt="star">
+            <img name="star-red" id="starRed" src="assets/star-active.svg" alt="star">
+          </button>
+          <button id="deleteCard" class="delete-button">
+            <img name="x-white" src="assets/delete.svg" alt="X">
+            <img name="x-red" id="x-red" src="assets/delete-active.svg" alt="X">
+          </button>
+      </header>
+      <div class="idea-body">
+        <strong>${filteredFavorites[i].title}</strong>
+        <p>${filteredFavorites[i].body}</p>
+      </div>
+      <footer>
+        <button class="comment-button">
+          <img src="assets/comment.svg" alt="comment">
+          <span>Comment</span>
+        </button>
+      </footer>
+    </article>`
+  }
+
+}
+
+
 
 function deleteIdea(e) {
   for(var i = 0; i < savedIdeas.length; i ++) {

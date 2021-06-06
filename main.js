@@ -25,15 +25,11 @@ bodyInput.addEventListener("keyup", checkInputs);
 // starWhiteImg.addEventListener("click",);
 
 ideaContainerSection.addEventListener("click", function(e) {
-// console.log(e.target, e)
-// console.log("this is the id--->", e.target.id)
 if(e.target.id === "x-red"){
   deleteIdea(e)
 }
 }
 );
-// xWhiteImg.addEventListener("click",);
-// xRedImg.addEventListener("click",);
 
 
 function checkInputs() {
@@ -82,8 +78,12 @@ function displayIdeas() {
   titleInput.value = null;
   bodyInput.value = null;
 
+  ideaContainerSection.innerHTML = "";
+
+  console.log("savedIdeas", savedIdeas);
+
   for (i = 0; i < savedIdeas.length; i++) {
-    ideaContainerSection.innerHTML += `<article>
+    ideaContainerSection.innerHTML += `<article id=${savedIdeas[i].id}>
       <header>
           <button id="favorite" class="favorite-button">
             <img name="star-white" src="assets/star.svg" alt="star">
@@ -112,15 +112,20 @@ function displayIdeas() {
 // The card should be permanently removed from my view
 
 function deleteIdea(e) {
-  console.log("I am here")
+  for(var i = 0; i < savedIdeas.length; i ++) {
+    if(`${e.target.closest("article").id}` === `${savedIdeas[i].id}`){
+      savedIdeas[i].deleteFromStorage();
+      savedIdeas.splice(i, 1);
+      console.log(savedIdeas);
+      console.log(localStorage)
 
-  //we have to grab the id of the element that is clicked.
+    }
+  }
 
-  //take the instance out of the savedIdeas array;
-  //remove the instance from localStorage by the id;
-  // call the function displayIdeas (renderSavedIdeas);
+  displayIdeas();
+  console.log("I have just called displayIDeas()");
+
 }
-
 
 // Goal:  Is to make sure that on page reload/any point in time where
 // we need the DM to be updated with the most recent info.

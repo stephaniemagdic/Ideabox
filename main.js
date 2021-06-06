@@ -11,17 +11,17 @@ var titleInput = document.getElementById('titleInput');
 var bodyInput = document.getElementById('bodyInput');
 var ideaContainerSection = document.querySelector('.idea-container');
 
+
 var savedIdeas = [];
 
 // window.addEventListener("load", getLocalStorage);
 //
 // function getLocalStorage() {
-// for(var i =0; i < localStorage.length; i++){
+// for(var i =0; i < localStorage.length; i++) {
 //   console.log(localStorage.getItem(localStorage.key(i)))
 // //   savedIdeas.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-// // savedIdeas.push(JSON.parse
-// }
-// }
+//  }
+//}
 
 
 // saveIdeaBtn.disabled = false;
@@ -35,12 +35,31 @@ bodyInput.addEventListener("keyup", checkInputs);
 // commentBtn.addEventListener("click",);
 // starWhiteImg.addEventListener("click",);
 
+// e.target.id === "star-white" ||
 ideaContainerSection.addEventListener("click", function(e) {
-if(e.target.id === "x-red"){
-  deleteIdea(e)
+  if(e.target.id === "starWhite" || e.target.id === "starRed") {
+    addToFavorite(e);
+  }
+});
+
+ideaContainerSection.addEventListener("click", function(e) {
+  if(e.target.id === "x-red") {
+    deleteIdea(e)
+  }
+  });
+
+  function addToFavorite(e) {
+  for(var i = 0; i < savedIdeas.length; i ++) {
+      if(`${e.target.closest("article").id}` === `${savedIdeas[i].id}`) {
+        if (savedIdeas[i].star === true) {
+          document.getElementById(e.target.closest("article").id).classList.remove("starred");
+        } else {
+          document.getElementById(e.target.closest("article").id).classList.add("starred");
+        }
+          savedIdeas[i].updateIdea();
+      }
+  }
 }
-}
-);
 
 function checkInputs() {
   if (titleInput.value === "" || bodyInput.value === "")
@@ -87,8 +106,8 @@ function displayIdeas() {
     ideaContainerSection.innerHTML += `<article id=${savedIdeas[i].id}>
       <header>
           <button id="favorite" class="favorite-button">
-            <img name="star-white" src="assets/star.svg" alt="star">
-            <img name="star-red" src="assets/star-active.svg" alt="star">
+            <img name="star-white" id="starWhite" src="assets/star.svg" alt="star">
+            <img name="star-red" id="starRed" src="assets/star-active.svg" alt="star">
           </button>
           <button id="deleteCard" class="delete-button">
             <img name="x-white" src="assets/delete.svg" alt="X">
@@ -109,19 +128,13 @@ function displayIdeas() {
   }
 }
 
-
 function deleteIdea(e) {
   for(var i = 0; i < savedIdeas.length; i ++) {
-    if(`${e.target.closest("article").id}` === `${savedIdeas[i].id}`){
+    if(`${e.target.closest("article").id}` === `${savedIdeas[i].id}`) {
       savedIdeas[i].deleteFromStorage();
       savedIdeas.splice(i, 1);
-      console.log(savedIdeas);
-      console.log(localStorage)
-
     }
   }
-
   displayIdeas();
-  console.log("I have just called displayIDeas()");
 
 }

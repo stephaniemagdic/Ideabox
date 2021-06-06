@@ -21,6 +21,7 @@ class Idea {
     } else if (this.star === false) {
       this.star = true;
     }
-      saveToStorage();
+
+      this.saveToStorage();
   }
 };

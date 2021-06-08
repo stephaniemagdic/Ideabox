@@ -38,6 +38,7 @@ searchBar.addEventListener("keyup", function(e) {
   });
 
   function displayFilteredIdeas(ideaList) {
+    ideaContainerSection.innerHTML = "";
     for (i = 0; i < ideaList.length; i++) {
       if (ideaList[i].star === true) {
         ideaContainerSection.innerHTML +=`<article id=${ideaList[i].id} class="starred">
@@ -156,6 +157,7 @@ function createNewIdea() {
   }
 
 function displayIdeas() {
+  searchBar.value = null;
   titleInput.value = null;
   bodyInput.value = null;
   starredIdeasBtn.innerText = "Show Starred Ideas";
@@ -214,6 +216,7 @@ function displayIdeas() {
 }
 
 function displayFavorites() {
+  searchBar.value = null;
   var filteredFavorites = savedIdeas.filter(idea => idea.star === true);
   ideaContainerSection.innerHTML = "";
   for (i = 0; i < filteredFavorites.length; i++) {

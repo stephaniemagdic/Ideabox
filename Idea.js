@@ -22,6 +22,6 @@ class Idea {
       this.star = true;
     }
 
-      this.saveToStorage();
+    this.saveToStorage();
   }
 };

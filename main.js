@@ -37,10 +37,28 @@ searchBar.addEventListener("keyup", function(e) {
 
 // ---------------------------------Functions --------------------------------//
 function getLocalStorage() {
+  console.log("before the loop", JSON.parse(localStorage.getItem(localStorage.key(i))));
   for(var i = 0; i < localStorage.length; i++) {
     var parsedInfo = (JSON.parse(localStorage.getItem(localStorage.key(i))));
-    var oldCard = new Idea(parsedInfo.title, parsedInfo.body, parsedInfo.id, parsedInfo.star);
-    savedIdeas.push(oldCard);
+    console.log("parsedInfo", parsedInfo);
+    savedIdeas.push(new Idea(parsedInfo.title, parsedInfo.body, parsedInfo.id, parsedInfo.star));
+    // savedIdeas.push(oldCard);
+    //push into its own array first and then sort it and push it into savedIdeas array.
+    //
+    // objectList.sort(function (a, b) {
+    //     var key1 = a.date;
+    //     var key2 = b.date;
+    //
+    //     if (key1 < key2) {
+    //         return -1;
+    //     } else if (key1 == key2) {
+    //         return 0;
+    //     } else {
+    //         return 1;
+    //     }
+    // });
+
+    console.log("savedIdeas", savedIdeas);
     displayIdeas();
  }
 }

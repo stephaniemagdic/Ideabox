@@ -10,9 +10,9 @@ your ideas to life!
 
 ### Team:
 
-[Stephanie M] (https://github.com/stephaniemagdic)
-[Joana B] (https://github.com/joanafbrito) 
-[Logan V] (https://github.com/Logandv3)
+[Stephanie M](https://github.com/stephaniemagdic)
+[Joana B](https://github.com/joanafbrito) 
+[Logan V](https://github.com/Logandv3)
 
 
 
@@ -22,7 +22,7 @@ your ideas to life!
 
 ### Project Manager
 
-[Kayla Wood] (https://github.com/kaylaewood)
+[Kayla Wood](https://github.com/kaylaewood)
 
 
 
@@ -36,7 +36,7 @@ JavaScript
 
 ## Instructions for running and viewing
 
-You can start creating your own idea cards here [Ideabox] (https://logandv3.github.io/Ideabox/) 
+You can start creating your own idea cards here [Ideabox](https://logandv3.github.io/Ideabox/) 
 
 * Making a New Card:  Enter a title in the `Title` field.  Enter your idea in the `Body` field.  When you are ready to create your idea card, click the `Save` button.  Your new card will appear in the empty space below.
 
@@ -53,11 +53,11 @@ You can start creating your own idea cards here [Ideabox] (https://logandv3.gith
 * Search Idea Cards:  To search the idea cards for a specific card, enter the title or other text that is on the card in the `Search` field.  The cards will filter as you type and only the cards that match will appear on the page.
 
 
-[How to Use IdeaBox!!!] (https://youtu.be/8c3D1zfNPgE)
+[How to Use IdeaBox!!!](https://youtu.be/8c3D1zfNPgE)
 
 
-![Main Page] (Screen Shot 2021-06-08 at 4.20.36 PM![image](https://user-images.githubusercontent.com/81990507/121268854-fd3b8100-c87b-11eb-8980-7d34329b0cce.png))
+![Main Page](Screen Shot 2021-06-08 at 4.20.36 PM![image](https://user-images.githubusercontent.com/81990507/121268854-fd3b8100-c87b-11eb-8980-7d34329b0cce.png))
 
-![Favorites Page] (Screen Shot 2021-06-08 at 4.20.51 PM![image](https://user-images.githubusercontent.com/81990507/121268931-1e9c6d00-c87c-11eb-8e84-853028fc1433.png))
+![Favorites Page](Screen Shot 2021-06-08 at 4.20.51 PM![image](https://user-images.githubusercontent.com/81990507/121268931-1e9c6d00-c87c-11eb-8e84-853028fc1433.png))
 
-![Search for Card] (Screen Shot 2021-06-08 at 4.21.33 PM![image](https://user-images.githubusercontent.com/81990507/121268973-33790080-c87c-11eb-923f-b7e16e4808e3.png))
+![Search for Card](Screen Shot 2021-06-08 at 4.21.33 PM![image](https://user-images.githubusercontent.com/81990507/121268973-33790080-c87c-11eb-923f-b7e16e4808e3.png))

@@ -11,7 +11,9 @@ your ideas to life!
 ### Team:
 
 [Stephanie M](https://github.com/stephaniemagdic)
+
 [Joana B](https://github.com/joanafbrito) 
+
 [Logan V](https://github.com/Logandv3)
 
 

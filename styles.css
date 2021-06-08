@@ -1,3 +1,4 @@
+
 body {
   display: flex;
   flex-direction: row;
@@ -39,6 +40,8 @@ input {
   display:block;
   display:flex;
   width: 100%;
+  border: 2px solid #5356A4;
+  border-radius: 2px
 }
 
 .idea-form input[name="title"] {
@@ -57,7 +60,7 @@ form.idea-title #save-idea {
   color: #FFFFFF;
   margin:10px 0;
   border: none;
-  height: 80px;
+  height: 40px;
 }
 
 #save-idea:disabled:hover {
@@ -74,10 +77,13 @@ form.idea-title #save-idea {
 }
 .field-container img {
   width: 20px;
+  padding: 10px;
   background-color: #1F1F3D;
 }
 .field-container input {
   border: 0;
+  height: 40px;
+  border-radius: 2px;
 }
 
 .navigation {
@@ -114,7 +120,7 @@ form.idea-title #save-idea {
   justify-content: flex-start;
   align-content: flex-start;
   background-color: #EAEAF4;
-  border: 2px solid blue;
+  border: 2px solid #5356A4;
   flex: 1;
   width: 100%;
   min-width: 900px;

@@ -24,10 +24,10 @@ main {
 }
 
 .idea-title {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 200px;
+  height: 200px; */
   width: 400px;
 }
 

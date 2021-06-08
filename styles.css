@@ -147,10 +147,10 @@ form.idea-title #save-idea {
 }
 
 .idea-container article button {
+  background: transparent;
   border: 0;
   margin: 0;
   padding: 0;
-  background: transparent;
   cursor: pointer;
 }
 
@@ -198,11 +198,12 @@ form.idea-title #save-idea {
 }
 
 .idea-container article .idea-body {
-  padding: 15px;
   background-color: #FFFFFF;
-  height: 200px;
-  overflow: auto;
   border: 1px solid #1F1F3D;
+  height: 200px;
+  padding: 15px;
+  overflow: auto;
+
 }
 
 .idea-container article .idea-body p {

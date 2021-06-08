@@ -16,13 +16,9 @@ titleInput.addEventListener("keyup", checkInputs);
 bodyInput.addEventListener("keyup", checkInputs);
 
 ideaContainerSection.addEventListener("click", function(e) {
-  if(e.target.id === "starWhite" || e.target.id === "starRed") {
+  if (e.target.id === "starWhite" || e.target.id === "starRed") {
     addToFavorite(e);
-  }
-});
-
-ideaContainerSection.addEventListener("click", function(e) {
-  if(e.target.id === "x-red") {
+  } else if (e.target.id === "x-red") {
     deleteIdea(e)
   }
 });
@@ -30,12 +26,41 @@ ideaContainerSection.addEventListener("click", function(e) {
 starredIdeasBtn.addEventListener("click", function() {
   if (starredIdeasBtn.innerText === "Show Starred Ideas") {
     displayFavorites();
-  } else if(starredIdeasBtn.innerText === "Show All Ideas") {
+  } else if (starredIdeasBtn.innerText === "Show All Ideas") {
     displayIdeas();
   }
 });
 
+//break this into a helper function
 searchBar.addEventListener("keyup", function(e) {
+
+  createFilteredList(e)
+  // var searchIdeaCards = e.target.value.toLowerCase();
+  //
+  // if (starredIdeasBtn.innerHTML === "Show Starred Ideas") {
+  //   var filteredIdeas = savedIdeas.filter((idea) => {
+  //   return (
+  //     idea.title.toLowerCase().includes(searchIdeaCards) ||
+  //     idea.body.toLowerCase().includes(searchIdeaCards)
+  //     )
+  //   });
+  //
+  //   displayFilteredIdeas(filteredIdeas);
+  //
+  //  } else if (starredIdeasBtn.innerHTML === "Show All Ideas") {
+  //      var filteredFavorites = savedIdeas.filter(idea => idea.star === true);
+  //      var starredIdeas = filteredFavorites.filter((idea) => {
+  //      return (
+  //        idea.title.toLowerCase().includes(searchIdeaCards) ||
+  //        idea.body.toLowerCase().includes(searchIdeaCards)
+  //        )
+  //      });
+  //
+  //    displayFilteredIdeas(starredIdeas);
+  //   }
+});
+
+function createFilteredList(e) {
   var searchIdeaCards = e.target.value.toLowerCase();
 
   if (starredIdeasBtn.innerHTML === "Show Starred Ideas") {
@@ -59,7 +84,7 @@ searchBar.addEventListener("keyup", function(e) {
 
      displayFilteredIdeas(starredIdeas);
     }
-});
+}
 
 // ---------------------------------Functions --------------------------------//
 function getLocalStorage() {
@@ -157,10 +182,6 @@ function createHTML(ideaList) {
   }
 }
 
-function displayFilteredIdeas(filteredIdeaList) {
-  createHTML(filteredIdeaList);
-}
-
 function displayIdeas() {
   searchBar.value = null;
   titleInput.value = null;
@@ -168,6 +189,10 @@ function displayIdeas() {
   starredIdeasBtn.innerText = "Show Starred Ideas";
   ideaContainerSection.innerHTML = "";
   createHTML(savedIdeas);
+}
+
+function displayFilteredIdeas(filteredIdeaList) {
+  createHTML(filteredIdeaList);
 }
 
 function displayFavorites() {
@@ -198,5 +223,10 @@ function deleteIdea(e) {
       savedIdeas.splice(i, 1);
     }
   }
-  displayIdeas();
+
+  if (starredIdeasBtn.innerText === "Show Starred Ideas") {
+    displayIdeas();
+  } else if (starredIdeasBtn.innerText === "Show All Ideas") {
+    displayFavorites();
+  }
 };

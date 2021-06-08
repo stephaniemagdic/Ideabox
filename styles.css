@@ -16,17 +16,6 @@ main {
   height: 100%;
 }
 
-.idea-form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin: 50px 200px;
-}
-
-.idea-title {
-  width: 400px;
-}
-
 label {
   font: #1F1F3D;
   font-weight: bold;
@@ -38,6 +27,17 @@ input {
   width: 100%;
   border: 2px solid #5356A4;
   border-radius: 2px
+}
+
+.idea-title {
+  width: 400px;
+}
+
+.idea-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 50px 200px;
 }
 
 .idea-form input[name="title"] {
@@ -214,8 +214,4 @@ form.idea-title #save-idea {
 .idea-container article footer {
   background-color: #5356A4;
   height: 25px;
-}
-
-.hidden {
-  display: none !important;
 }

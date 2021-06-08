@@ -36,14 +36,29 @@ starredIdeasBtn.addEventListener("click", function() {
 
 searchBar.addEventListener("keyup", function(e) {
   var searchIdeaCards = e.target.value.toLowerCase();
-  var filteredIdeas = savedIdeas.filter((idea) => {
-    return (
-      idea.title.toLowerCase().includes(searchIdeaCards) ||
-      idea.body.toLowerCase().includes(searchIdeaCards)
-      )
-    })
-    displayFilteredIdeas(filteredIdeas);
-  });
+
+  if (starredIdeasBtn.innerHTML === "Show Starred Ideas") {
+    var filteredIdeas = savedIdeas.filter((idea) => {
+      return (
+        idea.title.toLowerCase().includes(searchIdeaCards) ||
+        idea.body.toLowerCase().includes(searchIdeaCards)
+        )
+      });
+
+      displayFilteredIdeas(filteredIdeas);
+
+     } else if (starredIdeasBtn.innerHTML === "Show All Ideas") {
+         var filteredFavorites = savedIdeas.filter(idea => idea.star === true);
+         var starredIdeas = filteredFavorites.filter((idea) => {
+         return (
+           idea.title.toLowerCase().includes(searchIdeaCards) ||
+           idea.body.toLowerCase().includes(searchIdeaCards)
+           )
+         });
+
+       displayFilteredIdeas(starredIdeas);
+      }
+});
 
 function getLocalStorage() {
   for(var i = 0; i < localStorage.length; i++) {

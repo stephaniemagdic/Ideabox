@@ -1,31 +1,19 @@
+
 body {
   display: flex;
   flex-direction: row;
   background-color: #A9AAD2;
-  font-family: "Open Sans";
-  height: 100vh;
+  height: 100%;
   min-height: 700px;
+  min-width: 900px;
+  font-family: "Open Sans";
+
 }
 
 main {
   display: flex;
   flex-direction: column;
   height: 100%;
-}
-
-.idea-form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin: 50px 200px;
-}
-
-.idea-title {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 200px;
-  width: 400px;
 }
 
 label {
@@ -37,6 +25,19 @@ input {
   display:block;
   display:flex;
   width: 100%;
+  border: 2px solid #5356A4;
+  border-radius: 2px
+}
+
+.idea-title {
+  width: 400px;
+}
+
+.idea-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 50px 200px;
 }
 
 .idea-form input[name="title"] {
@@ -48,14 +49,15 @@ input {
 }
 
 form.idea-title #save-idea {
+  background-color: #1F1F3D;
+  color: #FFFFFF;
   width: 100%;
   font-family: "Open Sans";
   border-radius: 3px;
-  background-color: #1F1F3D;
-  color: #FFFFFF;
   margin:10px 0;
   border: none;
-  height: 80px;
+  height: 40px;
+  cursor: pointer;
 }
 
 #save-idea:disabled:hover {
@@ -66,42 +68,52 @@ form.idea-title #save-idea {
 
 .field-container {
   display: flex;
-  border: 1 solid black;
   justify-content: flex-start;
   align-items: center;
+  border: 1 solid black;
 }
+
 .field-container img {
-  width: 20px;
   background-color: #1F1F3D;
+  border: 3px solid #1F1F3D;
+  width: 20px;
+  padding: 10px;
+
 }
+
 .field-container input {
-  border: 0;
+  height: 40px;
 }
 
 .navigation {
   display: flex;
   flex-direction: column;
-  border: 2px solid none;
-  padding-left: 15px;
   flex: 0 0 auto;
-  width: 200px;
   background-color: #1F1F3D;
   color:#E9E9F3;
   font-size: 10px;
+  border: 2px solid none;
+  padding-left: 15px;
+  width: 200px;
+  height: auto;
+  min-height: 900px;
 }
 
 .show-starred-ideas {
   background-color: #5356A4;
-  font-weight: bold;
   color: #E9E9F3;
-  padding: 10px 30px;
+  font-weight: bold;
   border-radius: 1px;
   border: none;
+  padding: 10px 30px;
+  min-width: 190px;
+  cursor: pointer;
 }
 
 .filter-box {
-  border: 2px solid #353567;
   box-sizing: content-box;
+  border: 2px solid #353567;
+
 }
 
 .idea-container {
@@ -109,18 +121,22 @@ form.idea-title #save-idea {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: flex-start;
-  background-color: #EAEAF4;
-  border: 2px solid blue;
   flex: 1;
+  background-color: #EAEAF4;
+  border: 2px solid #5356A4;
+  width: 100%;
   min-width: 900px;
+  max-width: 900px;
+  min-height: 600px;
 }
 
 .idea-container article {
   display: flex;
   flex-direction: column;
+  margin: 15px;
   min-width: 250px;
   width: 30%;
-  margin: 5px;
+
 }
 
 .idea-container article header {
@@ -131,10 +147,10 @@ form.idea-title #save-idea {
 }
 
 .idea-container article button {
+  background: transparent;
   border: 0;
   margin: 0;
   padding: 0;
-  background: transparent;
   cursor: pointer;
 }
 
@@ -182,10 +198,12 @@ form.idea-title #save-idea {
 }
 
 .idea-container article .idea-body {
-  padding: 15px;
   background-color: #FFFFFF;
+  border: 1px solid #1F1F3D;
   height: 200px;
+  padding: 15px;
   overflow: auto;
+
 }
 
 .idea-container article .idea-body p {
@@ -196,8 +214,4 @@ form.idea-title #save-idea {
 .idea-container article footer {
   background-color: #5356A4;
   height: 25px;
-}
-
-.hidden {
-  display: none;
 }

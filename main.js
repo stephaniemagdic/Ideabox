@@ -10,85 +10,9 @@ var searchBar = document.querySelector('.search');
 var savedIdeas = [];
 
 window.addEventListener("load", getLocalStorage);
-
-function getLocalStorage() {
-  for(var i = 0; i < localStorage.length; i++) {
-    var parsedInfo = (JSON.parse(localStorage.getItem(localStorage.key(i))));
-    var oldCard = new Idea(parsedInfo.title, parsedInfo.body, parsedInfo.id, parsedInfo.star);
-    savedIdeas.push(oldCard);
-    displayIdeas();
- }
-}
-
-
 saveIdeaBtn.addEventListener("click", createNewIdea);
 titleInput.addEventListener("keyup", checkInputs);
 bodyInput.addEventListener("keyup", checkInputs);
-
-searchBar.addEventListener("keyup", function(e) {
-  var searchIdeaCards = e.target.value.toLowerCase();
-
-  var filteredIdeas = savedIdeas.filter((idea) => {
-    return (
-      idea.title.toLowerCase().includes(searchIdeaCards) ||
-      idea.body.toLowerCase().includes(searchIdeaCards)
-      )
-    })
-    displayFilteredIdeas(filteredIdeas);
-  });
-
-  function displayFilteredIdeas(ideaList) {
-    ideaContainerSection.innerHTML = "";
-    for (i = 0; i < ideaList.length; i++) {
-      if (ideaList[i].star === true) {
-        ideaContainerSection.innerHTML +=`<article id=${ideaList[i].id} class="starred">
-          <header>
-              <button id="favorite" class="favorite-button">
-                <img name="star-white" id="starWhite" src="assets/star.svg" alt="star">
-                <img name="star-red" id="starRed" src="assets/star-active.svg" alt="star">
-              </button>
-              <button id="deleteCard" class="delete-button">
-                <img name="x-white" src="assets/delete.svg" alt="X">
-                <img name="x-red" id="x-red" src="assets/delete-active.svg" alt="X">
-              </button>
-          </header>
-          <div class="idea-body">
-            <strong>${ideaList[i].title}</strong>
-            <p>${ideaList[i].body}</p>
-          </div>
-          <footer>
-            <button class="comment-button">
-              <img src="assets/comment.svg" alt="comment">
-              <span>Comment</span>
-            </button>
-          </footer>
-        </article>`
-  } else if (ideaList[i].star === false) {
-    ideaContainerSection.innerHTML += `<article id=${ideaList[i].id}>
-      <header>
-          <button id="favorite" class="favorite-button">
-            <img name="star-white" id="starWhite" src="assets/star.svg" alt="star">
-            <img name="star-red" id="starRed" src="assets/star-active.svg" alt="star">
-          </button>
-          <button id="deleteCard" class="delete-button">
-            <img name="x-white" src="assets/delete.svg" alt="X">
-            <img name="x-red" id="x-red" src="assets/delete-active.svg" alt="X">
-          </button>
-      </header>
-      <div class="idea-body">
-        <strong>${ideaList[i].title}</strong>
-        <p>${ideaList[i].body}</p>
-      </div>
-      <footer>
-        <button class="comment-button">
-          <img src="assets/comment.svg" alt="comment">
-          <span>Comment</span>
-        </button>
-      </footer>
-    </article>`
-}
-}
-}
 
 ideaContainerSection.addEventListener("click", function(e) {
   if(e.target.id === "starWhite" || e.target.id === "starRed") {
@@ -110,17 +34,91 @@ starredIdeasBtn.addEventListener("click", function() {
   }
 });
 
-  function addToFavorite(e) {
-  for(var i = 0; i < savedIdeas.length; i ++) {
-      if(`${e.target.closest("article").id}` === `${savedIdeas[i].id}`) {
-        if (savedIdeas[i].star === true) {
-          document.getElementById(e.target.closest("article").id).classList.remove("starred");
-        } else {
-          document.getElementById(e.target.closest("article").id).classList.add("starred");
-        }
-          savedIdeas[i].updateIdea();
+searchBar.addEventListener("keyup", function(e) {
+  var searchIdeaCards = e.target.value.toLowerCase();
+  var filteredIdeas = savedIdeas.filter((idea) => {
+    return (
+      idea.title.toLowerCase().includes(searchIdeaCards) ||
+      idea.body.toLowerCase().includes(searchIdeaCards)
+      )
+    })
+    displayFilteredIdeas(filteredIdeas);
+  });
+
+function getLocalStorage() {
+  for(var i = 0; i < localStorage.length; i++) {
+    var parsedInfo = (JSON.parse(localStorage.getItem(localStorage.key(i))));
+    var oldCard = new Idea(parsedInfo.title, parsedInfo.body, parsedInfo.id, parsedInfo.star);
+    savedIdeas.push(oldCard);
+    displayIdeas();
+ }
+}
+
+function displayFilteredIdeas(ideaList) {
+  ideaContainerSection.innerHTML = "";
+  for (i = 0; i < ideaList.length; i++) {
+    if (ideaList[i].star === true) {
+      ideaContainerSection.innerHTML +=`<article id=${ideaList[i].id} class="starred">
+        <header>
+            <button id="favorite" class="favorite-button">
+              <img name="star-white" id="starWhite" src="assets/star.svg" alt="star">
+              <img name="star-red" id="starRed" src="assets/star-active.svg" alt="star">
+            </button>
+            <button id="deleteCard" class="delete-button">
+              <img name="x-white" src="assets/delete.svg" alt="X">
+              <img name="x-red" id="x-red" src="assets/delete-active.svg" alt="X">
+            </button>
+        </header>
+        <div class="idea-body">
+          <strong>${ideaList[i].title}</strong>
+          <p>${ideaList[i].body}</p>
+        </div>
+        <footer>
+          <button class="comment-button">
+            <img src="assets/comment.svg" alt="comment">
+            <span>Comment</span>
+          </button>
+        </footer>
+      </article>`
+} else if (ideaList[i].star === false) {
+  ideaContainerSection.innerHTML += `<article id=${ideaList[i].id}>
+    <header>
+        <button id="favorite" class="favorite-button">
+          <img name="star-white" id="starWhite" src="assets/star.svg" alt="star">
+          <img name="star-red" id="starRed" src="assets/star-active.svg" alt="star">
+        </button>
+        <button id="deleteCard" class="delete-button">
+          <img name="x-white" src="assets/delete.svg" alt="X">
+          <img name="x-red" id="x-red" src="assets/delete-active.svg" alt="X">
+        </button>
+    </header>
+    <div class="idea-body">
+      <strong>${ideaList[i].title}</strong>
+      <p>${ideaList[i].body}</p>
+    </div>
+    <footer>
+      <button class="comment-button">
+        <img src="assets/comment.svg" alt="comment">
+        <span>Comment</span>
+      </button>
+    </footer>
+  </article>`
+}
+}
+}
+
+
+function addToFavorite(e) {
+for(var i = 0; i < savedIdeas.length; i ++) {
+    if(`${e.target.closest("article").id}` === `${savedIdeas[i].id}`) {
+      if (savedIdeas[i].star === true) {
+        document.getElementById(e.target.closest("article").id).classList.remove("starred");
+      } else {
+        document.getElementById(e.target.closest("article").id).classList.add("starred");
       }
-  }
+        savedIdeas[i].updateIdea();
+    }
+}
 }
 
 function checkInputs() {

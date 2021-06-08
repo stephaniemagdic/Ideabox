@@ -24,9 +24,9 @@ ideaContainerSection.addEventListener("click", function(e) {
 });
 
 starredIdeasBtn.addEventListener("click", function() {
-  if (starredIdeasBtn.innerText === "Show Starred Ideas") {
+  if (checkPageView() === "favorites") {
     displayFavorites();
-  } else if (starredIdeasBtn.innerText === "Show All Ideas") {
+  } else if (checkPageView() === "all") {
     displayIdeas();
   }
 });
@@ -45,9 +45,17 @@ function getLocalStorage() {
  }
 }
 
+function checkPageView() {
+  if (starredIdeasBtn.innerText === "Show Starred Ideas") {
+    return "favorites";
+  } else if (starredIdeasBtn.innerText === "Show All Ideas") {
+    return "all";
+  }
+}
+
 function createFilteredList(e) {
   var searchIdeaCards = e.target.value.toLowerCase();
-  if (starredIdeasBtn.innerHTML === "Show Starred Ideas") {
+  if (checkPageView() === "favorites") {
     var filteredIdeas = savedIdeas.filter((idea) => {
     return (
       idea.title.toLowerCase().includes(searchIdeaCards) ||
@@ -56,7 +64,7 @@ function createFilteredList(e) {
     });
 
     displayFilteredIdeas(filteredIdeas);
-   } else if (starredIdeasBtn.innerHTML === "Show All Ideas") {
+  } else if (checkPageView() === "all") {
        var filteredFavorites = savedIdeas.filter(idea => idea.star === true);
        var starredIdeas = filteredFavorites.filter((idea) => {
        return (
@@ -184,9 +192,9 @@ function addToFavorite(e) {
       savedIdeas[i].updateIdea();
     }
   }
-  if (starredIdeasBtn.innerText === "Show Starred Ideas") {
+  if (checkPageView() === "favorites") {
     displayIdeas();
-  } else if (starredIdeasBtn.innerText === "Show All Ideas") {
+  } else if (checkPageView() === "all") {
     displayFavorites();
   }
 }
@@ -198,9 +206,9 @@ function deleteIdea(e) {
       savedIdeas.splice(i, 1);
     }
   }
-  if (starredIdeasBtn.innerText === "Show Starred Ideas") {
+  if (checkPageView() === "favorites") {
     displayIdeas();
-  } else if (starredIdeasBtn.innerText === "Show All Ideas") {
+  } else if (checkPageView() === "all") {
     displayFavorites();
   }
 }

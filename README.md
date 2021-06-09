@@ -6,8 +6,7 @@ IdeaBox is the creative space that allows you to store those genius shower thoug
 out of your head and concentrate on your day to day tasks.  Come back to IdeaBox when you have more free time so you can really bring
 your ideas to life!
 
-\pagebreak
-\pagebreak
+
 
 ### Team:
 
@@ -35,8 +34,7 @@ HTML
 CSS
 JavaScript 
 
-\pagebreak
-\pagebreak
+
 
 
 ## Instructions for running and viewing

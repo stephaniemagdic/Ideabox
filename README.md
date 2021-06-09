@@ -6,8 +6,8 @@ IdeaBox is the creative space that allows you to store those genius shower thoug
 out of your head and concentrate on your day to day tasks.  Come back to IdeaBox when you have more free time so you can really bring
 your ideas to life!
 
-
-
+\pagebreak
+\pagebreak
 
 ### Team:
 
@@ -35,8 +35,8 @@ HTML
 CSS
 JavaScript 
 
-
-
+\pagebreak
+\pagebreak
 
 
 ## Instructions for running and viewing
@@ -62,8 +62,8 @@ You can start creating your own idea cards here [Ideabox](https://logandv3.githu
 
 
 
-![Main Page](Screen Shot 2021-06-08 at 4.20.36 PM![image](https://user-images.githubusercontent.com/81990507/121268854-fd3b8100-c87b-11eb-8980-7d34329b0cce.png)
+![Main Page](https://user-images.githubusercontent.com/81990507/121268854-fd3b8100-c87b-11eb-8980-7d34329b0cce.png)
 
-![Favorites Page](Screen Shot 2021-06-08 at 4.20.51 PM![image](https://user-images.githubusercontent.com/81990507/121268931-1e9c6d00-c87c-11eb-8e84-853028fc1433.png)
+![Favorites Page](https://user-images.githubusercontent.com/81990507/121268931-1e9c6d00-c87c-11eb-8e84-853028fc1433.png)
 
-![Search for Card](Screen Shot 2021-06-08 at 4.21.33 PM![image](https://user-images.githubusercontent.com/81990507/121268973-33790080-c87c-11eb-923f-b7e16e4808e3.png)
+![Search for Card](https://user-images.githubusercontent.com/81990507/121268973-33790080-c87c-11eb-923f-b7e16e4808e3.png)

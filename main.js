@@ -1,7 +1,7 @@
-// ---------------------------------Global Variables --------------------------------//
+// -----------------------------Global Variables ------------------------------//
 var starredIdeasBtn = document.querySelector('.show-starred-ideas');
 var saveIdeaBtn = document.querySelector('.primary');
-var deleteCardBtn = document.getElementById('deleteCard');
+// var deleteCardBtn = document.getElementById('deleteCard');
 var xRedImg = document.getElementById('x-red');
 var titleInput = document.getElementById('titleInput');
 var bodyInput = document.getElementById('bodyInput');
@@ -9,7 +9,7 @@ var ideaContainerSection = document.querySelector('.idea-container');
 var searchBar = document.querySelector('.search');
 var savedIdeas = [];
 
-// ---------------------------------Event Listeners --------------------------------//
+// ---------------------------Event Listeners --------------------------------//
 window.addEventListener("load", getLocalStorage);
 saveIdeaBtn.addEventListener("click", createNewIdea);
 titleInput.addEventListener("keyup", checkInputs);
@@ -23,10 +23,12 @@ ideaContainerSection.addEventListener("click", function(e) {
 });
 
 starredIdeasBtn.addEventListener("click", function() {
-  if (checkPageView() === "favorites") {
-    displayFavorites();
-  } else if (checkPageView() === "all") {
-    displayIdeas();
+  switch (checkPageView()) {
+    case 'favorites':
+      displayFavorites();
+      break;
+    case 'all':
+      displayIdeas();
   }
 });
 
@@ -36,12 +38,14 @@ searchBar.addEventListener("keyup", function(e) {
 
 // ---------------------------------Functions --------------------------------//
 function getLocalStorage() {
-  for(var i = 0; i < localStorage.length; i++) {
+  for (var i = 0; i < localStorage.length; i++) {
     var parsedInfo = (JSON.parse(localStorage.getItem(localStorage.key(i))));
-    savedIdeas.push(new Idea(parsedInfo.title, parsedInfo.body, parsedInfo.id, parsedInfo.star));
-    displayIdeas();
- }
-}
+    savedIdeas.push(new Idea(parsedInfo.title, parsedInfo.body, 
+      parsedInfo.id, parsedInfo.star));
+  }
+  displayIdeas();
+} 
+
 
 function checkPageView() {
   if (starredIdeasBtn.innerText === "Show Starred Ideas") {

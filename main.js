@@ -41,10 +41,9 @@ searchBar.addEventListener('keyup', function(e) {
 // ---------------------------------Functions --------------------------------//
 function getLocalStorage() {
   for (let i = 0; i < localStorage.length; i++) {
-    //can we destructure here????
     const parsedInfo = (JSON.parse(localStorage.getItem(localStorage.key(i))));
-    savedIdeas.push(new Idea(parsedInfo.title, parsedInfo.body, 
-      parsedInfo.id, parsedInfo.star));
+    const {title, body, id, star} = parsedInfo;
+    savedIdeas.push(new Idea(title, body, id, star));
   }
   displayIdeas();
 } 
@@ -108,7 +107,6 @@ const createNewIdea = () => {
   if (checkInputs() === false) {
     return false;
   }
-  //can I destructure here?
   const newIdea = new Idea(titleInput.value, bodyInput.value)
   savedIdeas.push(newIdea);
   newIdea.saveToStorage();

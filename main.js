@@ -7,7 +7,7 @@ const ideaContainerSection = document.querySelector('.idea-container');
 const searchBar = document.querySelector('.search');
 let savedIdeas = [];
 // ---------------------------Event Listeners --------------------------------//
-window.addEventListener('load', getLocalStorage);
+window.addEventListener('load', () => getLocalStorage());
 saveIdeaBtn.addEventListener('click', () => createNewIdea());
 titleInput.addEventListener('keyup', () => checkInputs());
 bodyInput.addEventListener('keyup', () => checkInputs());
@@ -23,7 +23,7 @@ ideaContainerSection.addEventListener('click', (e) => {
   }
 });
 
-starredIdeasBtn.addEventListener('click', function() {
+starredIdeasBtn.addEventListener('click', () => {
   switch (checkPageView()) {
     case 'favorites':
       displayFavorites();
@@ -39,7 +39,7 @@ searchBar.addEventListener('keyup', function(e) {
 });
 
 // ---------------------------------Functions --------------------------------//
-function getLocalStorage() {
+const getLocalStorage = () => {
   for (let i = 0; i < localStorage.length; i++) {
     const parsedInfo = (JSON.parse(localStorage.getItem(localStorage.key(i))));
     const {title, body, id, star} = parsedInfo;
@@ -48,7 +48,6 @@ function getLocalStorage() {
   displayIdeas();
 } 
 
-//here with swtich statement
 const checkPageView = () => {
   if (starredIdeasBtn.innerText === 'Show Starred Ideas') {
     return 'favorites';
@@ -59,25 +58,23 @@ const checkPageView = () => {
 
 const createFilteredList = (e) => {
   const searchIdeaCards = e.target.value.toLowerCase();
-  switch (checkPageView()) {
-    case 'favorites':
-      const filteredIdeas = savedIdeas.filter((idea) => {
-        return (
-          idea.title.toLowerCase().includes(searchIdeaCards) ||
-          idea.body.toLowerCase().includes(searchIdeaCards)
-        )
-      });
-        displayFilteredIdeas(filteredIdeas);
-        break;
-    case 'all':
-      const filteredFavorites = savedIdeas.filter(idea => idea.star === true);
-      const starredIdeas = filteredFavorites.filter((idea) => {
-        return (
-          idea.title.toLowerCase().includes(searchIdeaCards) ||
-          idea.body.toLowerCase().includes(searchIdeaCards)
-        )
+  if (checkPageView() === 'favorites') {
+    let filteredIdeas = savedIdeas.filter((idea) => {
+      return (
+        idea.title.toLowerCase().includes(searchIdeaCards) ||
+        idea.body.toLowerCase().includes(searchIdeaCards)
+      )
     });
-      displayFilteredIdeas(starredIdeas);
+    displayFilteredIdeas(filteredIdeas);
+  } else {
+    const filteredFavorites = savedIdeas.filter(idea => idea.star === true);
+    const starredIdeas = filteredFavorites.filter((idea) => {
+      return (
+        idea.title.toLowerCase().includes(searchIdeaCards) || 
+        idea.body.toLowerCase().includes(searchIdeaCards)
+      )
+    });
+    displayFilteredIdeas(starredIdeas);
   }
 }
 
@@ -115,7 +112,7 @@ const createNewIdea = () => {
 
 const createHTML = (ideaList) => {
   ideaContainerSection.innerHTML = "";
-  for (i = 0; i < ideaList.length; i++) {
+  for (let i = 0; i < ideaList.length; i++) {
     if (ideaList[i].star === true) {
       ideaContainerSection.innerHTML +=`
       <article id=${ideaList[i].id} class="starred">
@@ -189,59 +186,43 @@ const displayFavorites = () => {
   starredIdeasBtn.innerText = 'Show All Ideas';
 }
 
-
-// function addToFavorite(e) {
-//   savedIdeas.forEach(idea => {
-//     switch (idea.star) {
-//       case true:
-//         document.getElementById(e.target.closest("article").id).classList.remove("starred");
-//         // idea.updateIdea();
-//         break;
-//       case false:
-//         document.getElementById(e.target.closest("article").id).classList.add("starred");
-//         // idea.updateIdea();
-//         break;
-//     }
-//   });
-//   switch (checkPageView()) {
-//     case 'favorites':
-//       displayIdeas();
-//       break;
-//     case 'all':
-//       displayFavorites();
-//       break;
-//   }
-// }
-
 const addToFavorite = (e) => {
-  for (var i = 0; i < savedIdeas.length; i ++) {
-    if (`${e.target.closest('article').id}` === `${savedIdeas[i].id}`) {
-      if (savedIdeas[i].star === true) {
-        document.getElementById(e.target.closest("article").id).classList.remove('starred');
+  savedIdeas.forEach((idea) => {
+    if (`${e.target.closest('article').id}` === `${idea.id}`) {
+      if (!idea.star) {
+        document.getElementById(e.target.closest("article").id)
+          .classList.remove('starred');
       } else {
-        document.getElementById(e.target.closest("article").id).classList.add("starred");
+        document.getElementById(e.target.closest("article").id)
+          .classList.add("starred");
       }
-    savedIdeas[i].updateIdea();
+      idea.toggleStar();
     }
-  }
-  if (checkPageView() === 'favorites') {
-    displayIdeas();
-  } else if (checkPageView() === 'all') {
-    displayFavorites();
+  });
+  switch (checkPageView()) {
+    case 'favorites':
+      displayIdeas();
+      break;
+    case 'all':
+      displayFavorites();
+      break;
   }
 }
 
 const deleteIdea = (e) =>  {
-  for (var i = 0; i < savedIdeas.length; i ++) {
+  for (let i = 0; i < savedIdeas.length; i ++) {
     if (`${e.target.closest('article').id}` === `${savedIdeas[i].id}`) {
       savedIdeas[i].deleteFromStorage();
       savedIdeas.splice(i, 1);
     }
   }
-  if (checkPageView() === 'favorites') {
+  switch (checkPageView()) {
+  case 'favorites':
     displayIdeas();
-  } else if (checkPageView() === 'all') {
+    break;
+  case 'all':
     displayFavorites();
+    break;
   }
 }
 

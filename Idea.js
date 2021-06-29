@@ -15,7 +15,7 @@ class Idea {
     localStorage.removeItem(`${this.id}`);
   }
 
-  updateIdea() {
+  toggleStar() {
     if (this.star === true) {
       this.star = false;
     } else if (this.star === false) {

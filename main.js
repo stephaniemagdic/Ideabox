@@ -42,7 +42,12 @@ searchBar.addEventListener('keyup', function(e) {
 const getLocalStorage = () => {
   for (let i = 0; i < localStorage.length; i++) {
     const parsedInfo = (JSON.parse(localStorage.getItem(localStorage.key(i))));
-    const {title, body, id, star} = parsedInfo;
+    const {
+      title,
+      body,
+      id,
+      star
+    } = parsedInfo;
     savedIdeas.push(new Idea(title, body, id, star));
   }
   displayIdeas();

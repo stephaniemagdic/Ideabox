@@ -1,5 +1,7 @@
 
-# IdeaBox
+# [IdeaBox](https://stephaniemagdic.github.io/Ideabox/)
+
+*Week 4 (of Mod1) at Turing School of Software and Development
 
 Every developer has more ideas than time. As David Allen likes to say “the human brain is for creating ideas, not remembering them.”
 IdeaBox is the creative space that allows you to store those genius shower thoughts and daydreams in one spot.  That way you can get them 
@@ -17,11 +19,6 @@ your ideas to life!
 [Logan V](https://github.com/Logandv3)
 
 
-
-### Consultants:
-
-
-
 ### Project Manager
 
 [Kayla Wood](https://github.com/kaylaewood)
@@ -35,11 +32,9 @@ CSS
 JavaScript 
 
 
-
-
 ## Instructions for running and viewing
 
-You can start creating your own idea cards here [Ideabox](https://logandv3.github.io/Ideabox/) 
+You can start creating your own idea cards here [Ideabox](https://stephaniemagdic.github.io/Ideabox/) 
 
 * **Making a New Card:**  Enter a title in the `Title` field.  Enter your idea in the `Body` field.  When you are ready to create your idea card, click the `Save` button.  Your new card will appear in the empty space below.
 

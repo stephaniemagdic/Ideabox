@@ -1,7 +1,7 @@
 
 # [IdeaBox](https://stephaniemagdic.github.io/Ideabox/)
 
-## Week 4 (Mod1) at Turing School of Software and Development
+## Week 4 (Mod1) at Turing School of Software and Design
 ### [Project Spec](https://frontend.turing.edu/projects/module-1/ideabox-group.html)
 
 Every developer has more ideas than time. As David Allen likes to say “the human brain is for creating ideas, not remembering them.”

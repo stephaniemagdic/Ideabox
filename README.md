@@ -1,7 +1,8 @@
 
 # [IdeaBox](https://stephaniemagdic.github.io/Ideabox/)
 
-## Week 4 (of Mod1) at Turing School of Software and Development
+## Week 4 (Mod1) at Turing School of Software and Development
+### [Project Spec](https://frontend.turing.edu/projects/module-1/ideabox-group.html)
 
 Every developer has more ideas than time. As David Allen likes to say “the human brain is for creating ideas, not remembering them.”
 IdeaBox is the creative space that allows you to store those genius shower thoughts and daydreams in one spot.  That way you can get them 
